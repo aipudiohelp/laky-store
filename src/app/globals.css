@@ -1,1 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cairo: 'Cairo', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+}
+
+body {
+  font-family: var(--font-cairo);
+  background-color: #FAFCFA;
+  color: #1A202C;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* بطاقات المنتجات وانتقالات الانعكاس */
+.product-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card-shadow:hover {
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* شريط التمرير المخصص */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #153E2A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0E2B1D;
+}

@@ -14,7 +14,7 @@ export function formatPrice(price) {
 }
 
 export function generateWhatsAppLink({
-  phoneNumber = "201000000000",
+  phoneNumber = "201025484524",
   productName,
   price,
   customerName = "",

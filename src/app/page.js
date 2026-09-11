@@ -7,6 +7,7 @@ import QuizBanner from "@/components/home/QuizBanner";
 import TrustBar from "@/components/home/TrustBar";
 import QuickOrderModal from "@/components/modals/QuickOrderModal";
 import QuizModal from "@/components/modals/QuizModal";
+import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import { products } from "@/data/products";
 
 export default function Home() {
@@ -14,14 +15,14 @@ export default function Home() {
   const cavilloProducts = products.filter((p) => p.brand === "cavillo");
 
   return (
-    <main className="min-h-screen flex flex-col bg-white">
-      {/* شريط التنقل */}
+    <main className="min-h-screen flex flex-col bg-white relative">
+      {/* الهيدر العلوي */}
       <Navbar />
 
       {/* قسم الهيرو وجذب الانتباه */}
       <HeroSection />
 
-      {/* تصنيفات سريعة */}
+      {/* شبكة الأقسام الأربعة */}
       <CategoryGrid />
 
       {/* قسم منتجات ريحانة */}
@@ -44,18 +45,21 @@ export default function Home() {
         products={cavilloProducts}
       />
 
-      {/* بنر التوجيه والمساعدة السريعة */}
+      {/* بنر الاختبار السريع: مش عارف تختار؟ */}
       <QuizBanner />
 
-      {/* شريط الثقة والضمانات */}
+      {/* شريط الأمان والثقة الأربعة */}
       <TrustBar />
 
-      {/* الفوتر */}
+      {/* التذييل */}
       <Footer />
 
-      {/* النوافذ المنبثقة للتحويل والشراء الفوري */}
+      {/* النوافذ المنبثقة للطلب والاختبار السريع */}
       <QuickOrderModal />
       <QuizModal />
+
+      {/* زر الواتساب العائم المباشر */}
+      <FloatingWhatsApp />
     </main>
   );
 }

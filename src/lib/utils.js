@@ -14,18 +14,27 @@ export function formatPrice(price) {
 }
 
 export function generateWhatsAppLink({
-  phoneNumber = "201025484524",
+  phoneNumber = "201025484524", // <-- ضع رقمك هنا لاستقبال الطلبات
   productName,
   price,
   customerName = "",
+  customerPhone = "",
   customerAddress = "",
 }) {
-  let message = `مرحباً، أود إتمام طلب المنتج التالي:\n`;
-  message += `📦 *المنتج:* ${productName}\n`;
-  if (price) message += `💰 *السعر:* ${price} ج.م\n`;
-  if (customerName) message += `👤 *الاسم:* ${customerName}\n`;
-  if (customerAddress) message += `📍 *العنوان:* ${customerAddress}\n`;
-  message += `\nيرجى تأكيد موعد الشحن والاستلام والدفع عند الاستلام. شكراً لكم!`;
+  const orderId = `ORD-${Date.now().toString().slice(-5)}`;
+  
+  let message = `*طلب جديد عبر المتجر* 🛍️\n`;
+  message += `----------------------------\n`;
+  message += `📦 *المنتج المطلوب:* ${productName}\n`;
+  message += `💰 *السعر:* ${price} ج.م\n`;
+  message += `💳 *طريقة الدفع:* الدفع عند الاستلام (COD)\n`;
+  message += `----------------------------\n`;
+  message += `👤 *اسم العميل:* ${customerName}\n`;
+  message += `📱 *رقم الهاتف للتوصيل:* ${customerPhone}\n`;
+  message += `📍 *عنوان الشحن بالتفصيل:* ${customerAddress}\n`;
+  message += `🆔 *كود الطلب:* ${orderId}\n`;
+  message += `----------------------------\n`;
+  message += `أرجو تأكيد تجهيز الشحنة وموعد الاستلام. شكراً لكم!`;
 
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 }

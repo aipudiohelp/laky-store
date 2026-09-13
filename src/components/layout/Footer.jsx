@@ -1,43 +1,76 @@
-export default function Footer() {
-  return (
-    <footer id="footer" className="bg-[#FDF7F3] border-t border-[#EADFD5] pt-10 pb-8 text-[#4B4B4B]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#EADFD5]">
-          
-          {/* هوية المتجر واللوجو */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#6B8F7A] text-[#FDF7F3] rounded-full flex items-center justify-center font-bold text-lg shadow-xs">
-              🌱
-            </div>
-            <div>
-              <span className="text-xl font-bold text-[#4B4B4B] block leading-tight">لكي ولأسرتك</span>
-              <span className="text-xs text-[#A67C5B] font-bold">عناية أفضل .. لحياة أجمل</span>
-            </div>
-          </div>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
-          {/* روابط التصفح والمعلومات */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-[#4B4B4B]/80">
-            <a href="#" className="hover:text-[#6B8F7A] transition">من نحن</a>
-            <a href="#" className="hover:text-[#6B8F7A] transition">المدونة</a>
-            <a href="#" className="hover:text-[#6B8F7A] transition">الأسئلة الشائعة</a>
-            <a href="#" className="hover:text-[#6B8F7A] transition">سياسة الصيانة والاستبدال</a>
-            <a href="#" className="hover:text-[#6B8F7A] transition">تواصل معنا</a>
-          </div>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-          {/* قنوات التواصل الاجتماعي بهوية موحدة وغير مشبعة */}
-          <div className="flex items-center gap-4 text-xs font-bold text-[#A67C5B]">
-            <span className="hover:text-[#6B8F7A] cursor-pointer transition">Instagram</span>
-            <span className="hover:text-[#6B8F7A] cursor-pointer transition">TikTok</span>
-            <span className="hover:text-[#6B8F7A] cursor-pointer transition">Facebook</span>
-            <span className="hover:text-[#6B8F7A] cursor-pointer transition">YouTube</span>
-          </div>
-        </div>
+:root {
+  --font-cairo: 'Cairo', sans-serif;
+}
 
-        {/* حقوق النشر */}
-        <div className="pt-6 text-center text-xs text-[#A67C5B] font-medium">
-          © {new Date().getFullYear()} لكي ولأسرتك - جميع الحقوق محفوظة
-        </div>
-      </div>
-    </footer>
-  );
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-cairo);
+  background-color: #FDF7F3;
+  color: #2E332F;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* تظليل النصوص بنغمات الزمرد الطبيعي الهادئ */
+::selection {
+  background-color: #D8EFE2;
+  color: #1B4332;
+}
+
+/* بطاقات المنتجات بظل ناعم وعميق يعكس الفخامة */
+.product-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(140, 100, 75, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card-shadow:hover {
+  box-shadow: 0 16px 32px -4px rgba(45, 106, 79, 0.12), 0 4px 12px -2px rgba(140, 100, 75, 0.06);
+  transform: translateY(-4px);
+}
+
+/* حركة التلاشي والظهور الانسيابي للنوافذ المنبثقة */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* شريط التمرير المخصص بدرجات الهوية المتناسقة */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDF7F3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8E0C9;
+  border-radius: 9999px;
+  border: 2px solid #FDF7F3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2D6A4F;
 }

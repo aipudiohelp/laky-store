@@ -1,38 +1,40 @@
-import { ShieldCheck, Truck, Clock, Heart } from "lucide-react";
-
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-white border-t border-gray-100 pt-10 pb-8 text-gray-600">
+    <footer id="footer" className="bg-[#FDF7F3] border-t border-[#EADFD5] pt-10 pb-8 text-[#4B4B4B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gray-100">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#EADFD5]">
           
+          {/* هوية المتجر واللوجو */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-emerald-800 text-white rounded-full flex items-center justify-center font-bold">
+            <div className="w-10 h-10 bg-[#6B8F7A] text-[#FDF7F3] rounded-full flex items-center justify-center font-bold text-lg shadow-xs">
               🌱
             </div>
             <div>
-              <span className="text-xl font-bold text-gray-900 block">لكي ولأسرتك</span>
-              <span className="text-xs text-gray-500">عناية أفضل .. لحياة أجمل</span>
+              <span className="text-xl font-bold text-[#4B4B4B] block leading-tight">لكي ولأسرتك</span>
+              <span className="text-xs text-[#A67C5B] font-bold">عناية أفضل .. لحياة أجمل</span>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-gray-600">
-            <a href="#" className="hover:text-brand-green transition">من نحن</a>
-            <a href="#" className="hover:text-brand-green transition">المدونة</a>
-            <a href="#" className="hover:text-brand-green transition">الأسئلة الشائعة</a>
-            <a href="#" className="hover:text-brand-green transition">سياسة الصيانة والاستبدال</a>
-            <a href="#" className="hover:text-brand-green transition">تواصل معنا</a>
+          {/* روابط التصفح والمعلومات */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-[#4B4B4B]/80">
+            <a href="#" className="hover:text-[#6B8F7A] transition">من نحن</a>
+            <a href="#" className="hover:text-[#6B8F7A] transition">المدونة</a>
+            <a href="#" className="hover:text-[#6B8F7A] transition">الأسئلة الشائعة</a>
+            <a href="#" className="hover:text-[#6B8F7A] transition">سياسة الصيانة والاستبدال</a>
+            <a href="#" className="hover:text-[#6B8F7A] transition">تواصل معنا</a>
           </div>
 
-          <div className="flex items-center gap-4 text-gray-400 text-sm">
-            <span className="hover:text-pink-600 cursor-pointer transition">Instagram</span>
-            <span className="hover:text-red-600 cursor-pointer transition">YouTube</span>
-            <span className="hover:text-black cursor-pointer transition">TikTok</span>
-            <span className="hover:text-blue-600 cursor-pointer transition">Facebook</span>
+          {/* قنوات التواصل الاجتماعي بهوية موحدة وغير مشبعة */}
+          <div className="flex items-center gap-4 text-xs font-bold text-[#A67C5B]">
+            <span className="hover:text-[#6B8F7A] cursor-pointer transition">Instagram</span>
+            <span className="hover:text-[#6B8F7A] cursor-pointer transition">TikTok</span>
+            <span className="hover:text-[#6B8F7A] cursor-pointer transition">Facebook</span>
+            <span className="hover:text-[#6B8F7A] cursor-pointer transition">YouTube</span>
           </div>
         </div>
 
-        <div className="pt-6 text-center text-xs text-gray-400 font-medium">
+        {/* حقوق النشر */}
+        <div className="pt-6 text-center text-xs text-[#A67C5B] font-medium">
           © {new Date().getFullYear()} لكي ولأسرتك - جميع الحقوق محفوظة
         </div>
       </div>

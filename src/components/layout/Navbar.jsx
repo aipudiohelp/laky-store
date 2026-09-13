@@ -9,20 +9,39 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 bg-[#FDF7F3]/95 backdrop-blur-md border-b border-[#EADFD5] shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
         
-        {/* اللوجو والعلامة التجارية */}
-        <a href="#" className="flex items-center gap-3 shrink-0">
-          <div className="w-12 h-12 bg-[#6B8F7A] text-[#FDF7F3] rounded-full flex items-center justify-center shadow-xs text-xl">
-            🌱
+        {/* اللوجو والعلامة التجارية مع منع تداخل النصوص */}
+        <a href="#" className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center border border-[#EADFD5] shadow-xs overflow-hidden shrink-0">
+            <img
+              src="/images/logo.png"
+              alt="شعار لكي ولأسرتك"
+              className="w-full h-full object-contain p-1"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+                if (e.currentTarget.nextElementSibling) {
+                  e.currentTarget.nextElementSibling.style.display = "flex";
+                }
+              }}
+            />
+            {/* بديل احتياطي يظهر فقط في حال تعذر تحميل الصورة */}
+            <div className="w-full h-full bg-[#6B8F7A] text-[#FDF7F3] rounded-full hidden items-center justify-center text-lg sm:text-xl font-black">
+              🌱
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-2xl font-black text-[#4B4B4B] tracking-tight leading-tight">لكي ولأسرتك</span>
-            <span className="text-xs text-[#A67C5B] font-bold tracking-wide">عناية أفضل .. لحياة أجمل</span>
+
+          <div className="flex flex-col justify-center text-right">
+            <span className="text-lg sm:text-2xl font-black text-[#4B4B4B] tracking-tight leading-none">
+              لكي ولأسرتك
+            </span>
+            <span className="text-[11px] sm:text-xs text-[#A67C5B] font-bold tracking-normal mt-1 block">
+              عناية أفضل .. لحياة أجمل
+            </span>
           </div>
         </a>
 
-        {/* روابط التنقل الرئيسية */}
+        {/* روابط التنقل الرئيسية للشاشات الكبيرة */}
         <nav className="hidden lg:flex items-center gap-7 text-sm font-bold text-[#4B4B4B]">
           <a href="#" className="text-[#6B8F7A] transition">الرئيسية</a>
           <a href="#products" className="hover:text-[#6B8F7A] transition">المنتجات</a>
@@ -39,8 +58,8 @@ export default function Navbar() {
           <a href="#footer" className="hover:text-[#6B8F7A] transition">تواصل معنا</a>
         </nav>
 
-        {/* حقل البحث والسلة بالهوية الجديدة */}
-        <div className="flex items-center gap-3">
+        {/* حقل البحث والسلة السريعة */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <div className="hidden sm:flex items-center relative w-56 md:w-64">
             <input
               type="text"
@@ -50,7 +69,7 @@ export default function Navbar() {
             <Search size={16} className="absolute right-3 text-[#A67C5B]/70 pointer-events-none" />
           </div>
 
-          <div className="relative p-2.5 bg-white rounded-full border border-[#EADFD5]">
+          <div className="relative p-2 sm:p-2.5 bg-white rounded-full border border-[#EADFD5]">
             <ShoppingBag size={20} className="text-[#4B4B4B]" />
             <span className="absolute -top-1 -right-1 bg-[#A67C5B] text-[#FDF7F3] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
               {cartItems.length}
@@ -60,7 +79,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#4B4B4B] rounded-xl hover:bg-white border border-[#EADFD5] transition"
+            className="lg:hidden p-2 text-[#4B4B4B] rounded-xl hover:bg-white border border-[#EADFD5] transition cursor-pointer"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>

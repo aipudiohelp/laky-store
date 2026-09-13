@@ -1,39 +1,71 @@
 import ProductCard from "./ProductCard";
+import { Sparkles, ArrowLeft } from "lucide-react";
 
 export default function BrandSection({ brand, title, subtitle, logoText, products }) {
   const isCavillo = brand === "cavillo";
 
-  // تطبيق الهوية المعتمدة: بني دافئ لكافيلو وأخضر طبيعي لريحانة مع خطوط عاجية ناعمة
-  const bannerStyle = isCavillo
-    ? "bg-[#A67C5B] text-[#FDF7F3]"
-    : "bg-[#6B8F7A] text-[#FDF7F3]";
+  // تدرجات غنية وفخمة تضفي عمقاً بصرياً مبهراً بدلاً من الألوان المطفأة
+  const bannerConfig = isCavillo
+    ? {
+        bg: "bg-gradient-to-l from-[#6E3B33] via-[#8B4D43] to-[#A35E53]",
+        shadow: "shadow-xl shadow-[#6E3B33]/20",
+        badge: "✨ عناية مخملية فائقة وترطيب عميق",
+        badgeStyle: "bg-white/15 text-[#FDF7F3] border-white/20",
+        btnColor: "hover:text-[#6E3B33]",
+      }
+    : {
+        bg: "bg-gradient-to-l from-[#1B4332] via-[#2D6A4F] to-[#407B5E]",
+        shadow: "shadow-xl shadow-[#1B4332]/20",
+        badge: "🌿 تركيبات عشبية ونقاء طبيعي 100%",
+        badgeStyle: "bg-white/15 text-[#FDF7F3] border-white/20",
+        btnColor: "hover:text-[#1B4332]",
+      };
 
   return (
     <section className="py-8 bg-[#FDF7F3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* البانر التعريفي للبراند المتناسق مع الهوية */}
-        <div className={`p-6 md:p-8 rounded-3xl ${bannerStyle} shadow-md mb-6 flex flex-col md:flex-row items-center justify-between gap-6 border border-[#EADFD5]`}>
-          <div className="flex items-center gap-4 text-right">
-            <div className="bg-white/15 backdrop-blur-sm px-5 py-3 rounded-2xl border border-white/25">
-              <span className="text-2xl md:text-3xl font-black tracking-wide font-sans">{logoText}</span>
+        {/* البانر التعريفي للبراند بلمسات البوتيك الفاخر */}
+        <div
+          className={`p-6 md:p-8 rounded-3xl ${bannerConfig.bg} ${bannerConfig.shadow} mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/10 relative overflow-hidden`}
+        >
+          {/* تأثير ضوئي جمالي ناعم في زاوية البانر */}
+          <div className="absolute -top-12 -left-12 w-44 h-44 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+
+          <div className="flex items-center gap-4 text-right z-10">
+            {/* إطار اللوجو النصي الأنيق */}
+            <div className="bg-white/15 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/25 shadow-inner shrink-0">
+              <span className="text-2xl md:text-3xl font-black tracking-wider font-sans text-white">
+                {logoText}
+              </span>
             </div>
-            <div>
-              <h2 className="text-xl md:text-2xl font-black leading-snug">{title}</h2>
-              <p className="text-xs md:text-sm text-[#FDF7F3]/90 font-medium mt-1">{subtitle}</p>
+
+            <div className="space-y-1">
+              <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-black border ${bannerConfig.badgeStyle}`}>
+                <Sparkles size={11} />
+                {bannerConfig.badge}
+              </span>
+              <h2 className="text-xl md:text-2xl font-black text-white leading-tight">
+                {title}
+              </h2>
+              <p className="text-xs md:text-sm text-white/90 font-medium">
+                {subtitle}
+              </p>
             </div>
           </div>
 
+          {/* زر عرض المنتجات التفاعلي */}
           <button
             type="button"
-            className="px-5 py-2.5 bg-[#FDF7F3] text-[#4B4B4B] hover:bg-white font-extrabold text-xs rounded-full transition shadow-xs whitespace-nowrap cursor-pointer"
+            className={`z-10 px-6 py-3 bg-white text-[#2E332F] ${bannerConfig.btnColor} font-black text-xs rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 whitespace-nowrap cursor-pointer flex items-center gap-1.5 self-stretch md:self-auto justify-center`}
           >
-            + عرض جميع المنتجات
+            <span>عرض كل منتجات {logoText}</span>
+            <ArrowLeft size={14} />
           </button>
         </div>
 
-        {/* شبكة منتجات البراند */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* شبكة كروت المنتجات */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {products.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}

@@ -18,8 +18,8 @@ export default function HeroSection() {
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#4B4B4B] leading-[1.25]">
               عنايتك تبدأ <br />
-              <span className="text-[#6B8F7A] underline decoration-[#D4AF7C] decoration-wavy underline-offset-8">
-                بالأختيار الصح
+              <span className="text-[#6B8F7A]">
+                بالاختيار الصح
               </span>
             </h1>
 

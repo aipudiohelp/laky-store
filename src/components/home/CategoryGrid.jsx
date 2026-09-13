@@ -4,56 +4,73 @@ export default function CategoryGrid() {
   const categories = [
     {
       title: "باكدجات العناية",
-      tag: "تصفحي الآن",
+      subtitle: "أعلى توفير ونتائج متكاملة",
+      tag: "تسوقي العروض",
       icon: "🎁",
-      bg: "bg-[#D4AF7C]/15",
-      border: "border-[#D4AF7C]/30",
+      badgeBg: "bg-amber-100/70 border-amber-200/80",
+      cardHover: "hover:border-[#D4AF7C]",
       link: "#products",
     },
     {
       title: "العناية بالبشرة",
-      tag: "تصفحي الآن",
+      subtitle: "نضارة وتوحيد لون فوري",
+      tag: "اكتشفي الروتين",
       icon: "🌸",
-      bg: "bg-[#F8D7DC]/50",
-      border: "border-[#F8D7DC]",
+      badgeBg: "bg-rose-100/60 border-[#F3B6C3]",
+      cardHover: "hover:border-[#F3B6C3]",
       link: "#products",
     },
     {
       title: "العناية بالشعر",
-      tag: "تصفحي الآن",
+      subtitle: "كثافة، ترميم ومنع تساقط",
+      tag: "تصفحي الحلول",
       icon: "🌿",
-      bg: "bg-[#C8E0C9]/40",
-      border: "border-[#C8E0C9]",
+      badgeBg: "bg-emerald-100/70 border-[#9FC8A1]",
+      cardHover: "hover:border-[#9FC8A1]",
       link: "#products",
     },
     {
       title: "العناية بالجسم",
-      tag: "تصفحي الآن",
+      subtitle: "ترطيب عميق ونعومة حريرية",
+      tag: "تألقي الآن",
       icon: "🧴",
-      bg: "bg-[#EADFD5]/50",
-      border: "border-[#EADFD5]",
+      badgeBg: "bg-[#FAF2EB] border-[#EADFD5]",
+      cardHover: "hover:border-[#A67C5B]",
       link: "#products",
     },
   ];
 
   return (
-    <section id="categories" className="py-8 bg-[#FDF7F3]">
+    <section id="categories" className="py-6 sm:py-8 bg-[#FDF7F3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
           {categories.map((cat, idx) => (
             <a
               key={idx}
               href={cat.link}
-              className={`p-5 rounded-3xl ${cat.bg} border ${cat.border} flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 group`}
+              className={`relative p-4 sm:p-5 rounded-3xl bg-white border border-[#EADFD5] flex flex-col items-center justify-between text-center transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group ${cat.cardHover}`}
             >
-              <div className="text-3xl sm:text-4xl mb-2 group-hover:scale-110 transition-transform">
+              {/* إطار الأيقونة البوتيكي المميز */}
+              <div
+                className={`w-13 h-13 sm:w-15 sm:h-15 rounded-2xl ${cat.badgeBg} border flex items-center justify-center text-2xl sm:text-3xl mb-3 shadow-2xs group-hover:scale-110 transition-transform duration-300`}
+              >
                 {cat.icon}
               </div>
-              <h3 className="font-extrabold text-[#4B4B4B] text-sm sm:text-base mb-1">
-                {cat.title}
-              </h3>
-              <span className="text-xs text-[#A67C5B] font-bold flex items-center gap-1 group-hover:text-[#6B8F7A] transition">
-                {cat.tag} <ArrowLeft size={13} />
+
+              {/* العنوان والوصف السريع الموجه للنتائج */}
+              <div className="space-y-0.5 sm:space-y-1 mb-3">
+                <h3 className="font-black text-[#2E332F] text-sm sm:text-base leading-snug">
+                  {cat.title}
+                </h3>
+                <p className="text-[11px] sm:text-xs text-[#7A6B63] font-medium line-clamp-1">
+                  {cat.subtitle}
+                </p>
+              </div>
+
+              {/* رابط التصفح بالزمردي البارز */}
+              <span className="text-xs font-black text-[#2D6A4F] flex items-center gap-1 group-hover:text-[#1F4C38] transition-colors">
+                <span>{cat.tag}</span>
+                <ArrowLeft size={13} className="group-hover:-translate-x-1 transition-transform" />
               </span>
             </a>
           ))}

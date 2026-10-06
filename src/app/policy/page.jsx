@@ -2,48 +2,47 @@
 import Link from "next/link";
 import { 
   ShieldCheck, 
-  RotateCcw, 
+  Ban, 
   Truck, 
   CheckCircle2, 
   AlertCircle, 
   MessageCircle, 
-  FileText,
-  Clock
+  FileText
 } from "lucide-react";
 
 export default function PolicyPage() {
   const policyPoints = [
     {
-      title: "حق المعاينة الكاملة عند الاستلام",
-      desc: "يحق لكِ فحص وتفقد الشحنة والتأكد من مطابقة المنتجات والعبوات الخارجية تماماً قبل دفع أي مبالغ للمندوب لراحتك وطمأنينتك.",
+      title: "حق المعاينة الكاملة قبل الاستلام",
+      desc: "يحق لكِ فحص وتفقد الشحنة والتأكد من مطابقة المنتجات والعبوات الخارجية تماماً في وجود المندوب قبل دفع أي مبالغ لراحتك واطمئنانك.",
       icon: ShieldCheck,
       color: "text-[#2D6A4F]",
       bg: "bg-[#E8F4ED]",
       border: "border-[#9FC8A1]/50"
     },
     {
-      title: "الاستبدال والاسترجاع خلال 14 يوماً",
-      desc: "يمكنكِ تقديم طلب استبدال أو استرجاع لأي منتج خلال 14 يوماً من تاريخ الاستلام طالما كان المنتج بحالته الأصلية ومغلقاً بغلاف الأمان.",
-      icon: Clock,
-      color: "text-[#8C644B]",
-      bg: "bg-[#FAF2EB]",
-      border: "border-[#EADFD5]"
+      title: "لا يوجد استبدال أو استرجاع",
+      desc: "حرصاً على الصحة والسلامة العامة وحماية لعميلاتنا، جميع مستحضرات التجميل والعناية الشخصية لا تقبل الإرجاع أو الاستبدال نهائياً بعد مغادرة المندوب.",
+      icon: Ban,
+      color: "text-[#7A273D]",
+      bg: "bg-[#FDE8EC]",
+      border: "border-[#F3B6C3]"
     },
     {
-      title: "شحن مجاني في حالة الخطأ أو التلف",
-      desc: "إذا وصلتكِ شحنة بها أي عيب مصنعي أو تلف ناتج عن الشحن أو منتج غير مطابق لطلبكِ، نتحمل تكاليف الشحن كاملة ذهاباً وإياباً.",
+      title: "رفض فوري ومجاني في حال التلف",
+      desc: "إذا لاحظتِ أثناء المعاينة وجود أي كسر أو تلف ناتج عن الشحن أو منتج غير مطابق، يحق لكِ رفض استلام الشحنة فوراً للمندوب دون دفع أي تكلفة.",
       icon: Truck,
       color: "text-[#2D6A4F]",
       bg: "bg-[#E8F4ED]",
       border: "border-[#9FC8A1]/50"
     },
     {
-      title: "استرداد مالي سريع ومباشر",
-      desc: "في حالة إرجاع الطلب المعتمد، يتم رد كامل المبلغ نقداً عبر المندوب أو من خلال المحافظ الإلكترونية فور استلام المنتج وفحصه.",
-      icon: RotateCcw,
-      color: "text-[#7A273D]",
-      bg: "bg-[#FDE8EC]",
-      border: "border-[#F3B6C3]"
+      title: "دفع آمن بعد التأكد والمعاينة",
+      desc: "سداد قيمة الطلب يتم نقداً لمندوب الشحن فقط بعد فتح الطرد والتأكد التام من استلام المنتجات المطلوبة وبحالتيها الأصلية السليمة.",
+      icon: CheckCircle2,
+      color: "text-[#8C644B]",
+      bg: "bg-[#FAF2EB]",
+      border: "border-[#EADFD5]"
     }
   ];
 
@@ -59,15 +58,15 @@ export default function PolicyPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2E332F] tracking-tight">
-            سياسة <span className="text-[#2D6A4F]">الاسترجاع والاستبدال</span>
+            سياسة <span className="text-[#2D6A4F]">المعاينة والاستلام</span>
           </h1>
 
           <p className="text-sm sm:text-base text-[#5C5652] font-medium leading-relaxed">
-            في متجر لكي ولأسرتك، نضع رضاكِ وسلامتكِ على رأس أولوياتنا. إليكِ جميع الشروط المنظمة لعمليات الاستلام والمعاينة والاسترجاع بكل شفافية.
+            في متجر لكي ولأسرتك، نضع ثقتكِ وسلامتكِ الصحية على رأس أولوياتنا. تضمن سياستنا حقكِ الكامل في معاينة طلبكِ قبل الدفع مع مراعاة المعايير الوقائية لمنتجات العناية.
           </p>
         </div>
 
-        {/* كروت الضمانات الأربعة */}
+        {/* كروت الضوابط الأربعة */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
           {policyPoints.map((item, index) => {
             const Icon = item.icon;
@@ -88,53 +87,52 @@ export default function PolicyPage() {
           })}
         </div>
 
-        {/* تفاصيل وشروط الاستبدال والاسترجاع */}
+        {/* تفاصيل وشروط المعاينة والاستلام */}
         <div className="space-y-6 bg-white p-6 sm:p-10 rounded-3xl border border-[#EADFD5] shadow-sm mb-12 text-right">
           
           <div className="space-y-2 border-b border-[#EADFD5] pb-5">
             <h3 className="text-lg font-black text-[#2E332F] flex items-center gap-2">
-              <CheckCircle2 size={20} className="text-[#2D6A4F]" />
-              <span>شروط قبول طلبات الاسترجاع والاستبدال</span>
+              <AlertCircle size={20} className="text-[#7A273D]" />
+              <span>طبيعة منتجات التجميل والعناية الشخصية</span>
             </h3>
             <ul className="text-xs sm:text-sm text-[#5C5652] space-y-2 pt-2 leading-relaxed pr-6 list-disc">
-              <li>أن يكون المنتج في حالته الأصلية ولم يتم فتحه أو إزالة غلاف الأمان أو ملصق الحماية الشفاف.</li>
-              <li>نظراً لطبيعة مستحضرات التجميل والعناية الشخصية وحرصاً على الصحة العامة، لا يمكن استرجاع أو استبدال العبوات المفتوحة أو المستخدمة إلا إذا ثبت وجود عيب مصنعي في العبوة نفسها.</li>
-              <li>وجود فاتورة الطلب أو رقم الطلب المسجل على شحنة التوصيل للتأكد من بيانات الشراء.</li>
+              <li>نظراً لأن جميع معروضاتنا هي منتجات عناية شخصية وتجميل مخصصة للاستخدام الفردي، وحرصاً على السلامة الصحية العامة، فإنه **لا يتوفر استبدال أو استرجاع نهائياً** لأي منتج بمجرد استلامه ومغادرة مندوب الشحن.</li>
+              <li>ضمانكِ الأساسي لحماية حقك هو المعاينة المباشرة والفحص الدقيق أثناء تواجد المندوب.</li>
             </ul>
           </div>
 
           <div className="space-y-2 border-b border-[#EADFD5] pb-5">
             <h3 className="text-lg font-black text-[#2E332F] flex items-center gap-2">
-              <AlertCircle size={20} className="text-[#A67C5B]" />
-              <span>تكاليف ورسوم الشحن</span>
+              <CheckCircle2 size={20} className="text-[#2D6A4F]" />
+              <span>ضوابط وإجراءات المعاينة مع المندوب</span>
             </h3>
             <ul className="text-xs sm:text-sm text-[#5C5652] space-y-2 pt-2 leading-relaxed pr-6 list-disc">
-              <li>في حالة وصول منتج خاطئ أو تالف نتيجة الشحن، يتحمل المتجر كافة مصاريف استبدال الشحنة دون أي تكلفة إضافية على العميل.</li>
-              <li>في حالة رغبة العميل في استبدال المنتج دون وجود أي عيب مصنعي (تغيير الرأي مع بقاء المنتج مغلقاً بتغليفه الأصلي)، يتحمل العميل فقط رسوم شركة الشحن للتوصيل الجديد.</li>
+              <li>يحق للعميلة فتح طرد الشحن والتأكد من عدد العبوات ونوعية المنتجات ومطابقتها التامة للفاتورة قبل تسليم أي مبالغ مالية.</li>
+              <li>يُشترط فحص سلامة التغليف الخارجي للعبوات وعدم وجود أي تسريب أو كسر أثناء المعاينة.</li>
             </ul>
           </div>
 
           <div className="space-y-2">
             <h3 className="text-lg font-black text-[#2E332F] flex items-center gap-2">
-              <RotateCcw size={20} className="text-[#2D6A4F]" />
-              <span>خطوات تقديم طلب استرجاع أو استبدال</span>
+              <Truck size={20} className="text-[#2D6A4F]" />
+              <span>ماذا تفعلي في حالة وجود خطأ أو تلف بالشحنة؟</span>
             </h3>
             <p className="text-xs sm:text-sm text-[#5C5652] leading-relaxed pt-1">
-              تواصلي مباشرة مع خدمة العملاء عبر واتساب وأرسلي رقم الهاتف المسجل به الطلب مع صورة واضحة للشحنة، وسيتم مراجعة الطلب وترتيب زيارة المندوب خلال 48 ساعة عمل.
+              إذا تبين أثناء المعاينة وصول منتج غير مطابق لطلبك أو وجود أي كسر أو تلف، قومي فوراً برفض استلام الشحنة وإعادتها مع نفس المندوب دون سداد أي رسوم، وتواصلي معنا عبر واتساب لنقوم بشحن طلب جديد وسليم لكِ مباشرة.
             </p>
           </div>
 
         </div>
 
-        {/* بنر التواصل الفوري عبر واتساب للشكاوى والطلبات */}
+        {/* بنر التواصل الفوري عبر واتساب */}
         <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#2D6A4F] to-[#407B5E] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-[#2D6A4F]/20">
           <div className="space-y-1 text-right">
-            <h4 className="text-lg sm:text-xl font-black">هل لديكِ أي استفسار حول شحنتك؟</h4>
-            <p className="text-xs sm:text-sm text-white/90 font-medium">فريق خدمة العملاء متواجد على مدار اليوم لمساعدتك وتسهيل إجراءاتك.</p>
+            <h4 className="text-lg sm:text-xl font-black">هل لديكِ أي استفسار حول طلبكِ أو معاينة الشحنة؟</h4>
+            <p className="text-xs sm:text-sm text-white/90 font-medium">فريق خدمة العملاء متواجد للمتابعة معكِ وتسهيل استلام طلبك بكل طمأنينة.</p>
           </div>
 
           <a
-            href="https://wa.me/201025484524?text=مرحباً،%20لدي%20استفسار%20بخصوص%20سياسة%20الاسترجاع%20والاستبدال"
+            href="https://wa.me/201025484524?text=مرحباً،%20لدي%20استفسار%20بخصوص%20معاينة%20واستلام%20الطلب"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3.5 bg-white text-[#2D6A4F] hover:bg-[#FAF6F3] font-black text-xs rounded-2xl shadow-md transition-all whitespace-nowrap active:scale-95 flex items-center gap-2"

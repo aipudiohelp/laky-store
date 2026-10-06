@@ -37,7 +37,7 @@ export default function Footer() {
             <Link href="/about" className="hover:text-[#2D6A4F] transition">من نحن</Link>
             <Link href="/blog" className="hover:text-[#2D6A4F] transition">المدونة</Link>
             <Link href="/faq" className="hover:text-[#2D6A4F] transition">الأسئلة الشائعة</Link>
-            <Link href="/policy" className="hover:text-[#2D6A4F] transition">سياسة الاسترجاع والاستبدال</Link>
+            <Link href="/policy" className="hover:text-[#2D6A4F] transition">سياسة المعاينة والاستلام</Link>
             <a
               href="https://wa.me/201025484524?text=مرحباً،%20أود%20التواصل%20مع%20خدمة%20العملاء"
               target="_blank"

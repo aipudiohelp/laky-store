@@ -12,7 +12,6 @@ import { products } from "@/data/products";
 
 export default function Home() {
   const raihannaProducts = products.filter((p) => p.brand === "raihanna");
-  const cavilloProducts = products.filter((p) => p.brand === "cavillo");
 
   return (
     <main className="min-h-screen flex flex-col bg-white relative">
@@ -25,27 +24,18 @@ export default function Home() {
       {/* شبكة الأقسام الأربعة */}
       <CategoryGrid />
 
-      {/* قسم منتجات ريحانة */}
+      {/* قسم منتجات ريحانة الحصري */}
       <div id="products">
         <BrandSection
           brand="raihanna"
           logoText="Raihanna"
           title="منتجات ريحانة المختارة"
-          subtitle="لشعر أكثر شباباً .. وبشرة أكثر إشراقاً بشكل طبيعي يدوم"
+          subtitle="تركيبات طبيعية فاخرة .. لشعر أكثر حيوية وبشرة تشع إشراقاً وجمالاً"
           products={raihannaProducts}
         />
       </div>
 
-      {/* قسم منتجات كافيلو */}
-      <BrandSection
-        brand="cavillo"
-        logoText="Cavillo"
-        title="منتجات كافيلو المختارة"
-        subtitle="عناية متكاملة لبشرتك وجسمك .. من الطبيعة إلى جمالك"
-        products={cavilloProducts}
-      />
-
-      {/* بنر الاختبار السريع: مش عارف تختار؟ */}
+      {/* بنر الاختبار السريع: مش عارفة تختاري؟ */}
       <QuizBanner />
 
       {/* شريط الأمان والثقة الأربعة */}
